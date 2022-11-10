@@ -7,5 +7,9 @@ RUN pip3 install -U pip setuptools wheel
 RUN pip3 install gunicorn uvloop httptools
 
 COPY requirements.txt /app/requirements.txt
+
 RUN pip3 install -r /app/requirements.txt
-COPY service /app
+
+COPY service/ /app
+
+CMD ["python", "./main.py"]
