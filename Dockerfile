@@ -12,4 +12,4 @@ RUN pip3 install -r /app/requirements.txt
 
 COPY service/ /app
 
-CMD ["python", "./main.py"]
+CMD ["python", "./app/main.py"]
