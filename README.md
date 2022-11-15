@@ -1,8 +1,4 @@
-# IT-Practica-Python-FastApiDemo
-1) Create project
-2) Create virtual environment with:
-    - python -m venv venv
-3) Activate virtual environment:
-    - .\venv\Scripts\Activate
-4) Install dependencies with a "requirements.txt" file
-5) Code app starting from services
+# IT-ApiDemo-Trabajo2
+Api necesaria para demo de trabajo 2 en Infraestructura TI.
+
+La Api simula el encuentro de rastreadores de DuckDuckGo a la hora de buscar información por internet.

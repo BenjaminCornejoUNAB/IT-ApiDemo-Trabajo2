@@ -1,15 +1,23 @@
-FROM ubuntu:latest
+FROM python:latest
 
-RUN apt update && apt upgrade -y
+WORKDIR /app
 
-RUN apt install -y -q build-essential python3-pip python3-dev
-RUN pip3 install -U pip setuptools wheel
-RUN pip3 install gunicorn uvloop httptools
+COPY . .
 
-COPY requirements.txt /app/requirements.txt
+CMD ["Python", "./main.py"]
 
-RUN pip3 install -r /app/requirements.txt
+#FROM ubuntu:latest
 
-COPY service/ /app
+#RUN apt update && apt upgrade -y
 
-CMD ["python", "./app/main.py"]
+#RUN apt install -y -q build-essential python3-pip python3-dev
+#RUN pip3 install -U pip setuptools wheel
+#RUN pip3 install gunicorn uvloop httptools
+
+#COPY requirements.txt /app/requirements.txt
+
+#RUN pip3 install -r /app/requirements.txt
+
+#COPY service/ /app
+
+#CMD ["python", "./app/main.py"]

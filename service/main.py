@@ -1,20 +1,26 @@
 import uvicorn
 from fastapi import FastAPI
 import api_data
-from models.Character_Model import CharacterModel as model
+import random
 
 app = FastAPI()
 
 @app.get("/")
 def index():
     return{
-        "message":"Chao Mundo >:)"
+        "message":"Bienvenido a DuckDuckGo. Recuerda, la privacidad es lo más importante."
     }
 
-@app.get("/api/character/{id}", response_model=model)
-async def characterGetter(id:int):
-    character = await api_data.get_characterById(id)
-    return character.dict()
+@app.get("/catch/tracker")
+async def trackerCatcher():
+    catched = []
+    cantidad = random.randint(1,10)
+    
+    for x in range(cantidad):
+        tracker = await api_data.catchTracker()
+        trackInfo = {"nombre":tracker.bank_name, "addressID":tracker.uid}
+        catched.append(trackInfo)
+    return catched
 
 if __name__ == "__main__":
     uvicorn.run(app)

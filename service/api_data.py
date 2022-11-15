@@ -1,12 +1,12 @@
 from typing import Optional
 import httpx
-from models.Character_Model import CharacterModel as model
+from models.AntiTracker_Model import AntiTracker_Model as model
 
-async def get_characterById(characterId:int) -> Optional[model]:
-    url = f"https://rickandmortyapi.com/api/character/{characterId}"
+async def catchTracker() -> Optional[model]:
+    url = f"https://random-data-api.com/api/v2/banks"
     async with httpx.AsyncClient() as client:
         response: httpx.Response = await client.get(url)
         response.raise_for_status()
         data = response.json()
-        character = model(**data)
-        return character
+        tracker = model(**data)
+        return tracker
