@@ -15,7 +15,7 @@ def index():
 async def trackerCatcher():
     catched = []
     cantidad = random.randint(1,10)
-    
+
     for x in range(cantidad):
         tracker = await api_data.catchTracker()
         trackInfo = {"nombre":tracker.bank_name, "addressID":tracker.uid}
@@ -23,4 +23,4 @@ async def trackerCatcher():
     return catched
 
 if __name__ == "__main__":
-    uvicorn.run(app)
+    uvicorn.run(app, host='0.0.0.0', port=80)
